@@ -5,16 +5,28 @@
 
 </div>
 
-<h1>My Courses</h1>
+<h1 style="text-align: center;">My Courses</h1>
 
 <div class="courses">
 
-    <course-card (courseSelected)="onCourseSelected($event)" [course]="coreCourse"> </course-card>
+    @for (course of courses; track course.id; let index = $index; let count = $count;
+    let first = $first; let last = $last; let even = $even; let odd = $odd) {
+        
+        <course-card  
+            [course]="course" 
+            [index]="index"
+            [class.is-first]="first"
+            [class.is-last]="last"
+            [class.is-even]="even"
+            [class.is-odd]="odd"
 
-    <course-card (courseSelected)="onCourseSelected($event)" [course]="rxjsCourse"> </course-card>
+            (courseSelected)="onCourseSelected($event)"/> 
 
-    <course-card (courseSelected)="onCourseSelected($event)" [course]="ngrxCourse"> </course-card>
-
+    }
+    @empty { 
+        <h1>No coureses found!</h1>
+    }
+    
 </div>
 
 
