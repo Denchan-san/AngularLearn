@@ -1,9 +1,11 @@
 <div class="course-card" 
-    [ngClass]="cardClasses()">
+    [ngClass]="cardClasses()"
+    [ngStyle]="cardStyle()">
 
-    <div class="course-title">
+    <div class="course-title" >
        {{index}} {{course.description}}
     </div>
+    
     @if (course.id == 11){
         <h2>Course with id 1 - detected!</h2>
     }
