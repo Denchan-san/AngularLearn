@@ -19,9 +19,20 @@
 
 
     <div class="course-description">
-        {{course.longDescription}}
+        @switch (course.category) {
+            @case ("BEGINNER") {
+                <div class="category">Beginner</div>
+            }
+            @case ("INTERMEDIATE") {
+                <div class="category">Intermediate</div>
+            }
+            @case ("ADVANCED") {
+                <div class="category">Advanced</div>
+            }
+        }
+       
     </div>
-
+    {{course.longDescription}}
     <button (click)="onCourseViewed()">View Course</button>
 
 </div>
