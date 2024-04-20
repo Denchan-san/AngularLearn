@@ -1,9 +1,11 @@
+
+
 <div class="course-card" 
     [ngClass]="cardClasses()"
     [ngStyle]="cardStyle()">
 
     <div class="course-title" >
-       {{index}} {{course.description}}
+       {{index || ''}} {{course.description}}
     </div>
     
     @if (course.id == 11){

@@ -11,6 +11,14 @@ export class AppComponent {
 
   courses = [...COURSES];
 
+  startDate = new Date().getDate();
+
+  title = COURSES[0].description;
+
+  price = 9.99;
+
+  course = COURSES[0];
+
   onCourseSelected(course:Course){
     alert("Card clicked.." + course);
     console.log("App component - click event bubbled...", course)

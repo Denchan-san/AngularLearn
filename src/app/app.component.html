@@ -7,6 +7,17 @@
 
 <h1 style="text-align: center;">My Courses</h1>
 
+<div class="demo">
+    <div>Start Date: {{startDate | date: 'MMM/dd/yyyy'}}</div>
+    <div>{{title | titlecase}}</div>
+    <div>{{price | currency: 'USD'}}</div>
+</div>
+
+<div>
+    @for (pair of course| keyvalue; track $index) {
+        {{pair.key + ': '+pair.value}}
+    }
+</div>
 <div class="courses">
 
     @for (course of courses; track trackCourse;;let count = $count) {
