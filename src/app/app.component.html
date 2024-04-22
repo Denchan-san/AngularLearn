@@ -5,33 +5,23 @@
 
 </div>
 
-<h1 style="text-align: center;">My Courses</h1>
 
-<div class="demo">
-    <div>Start Date: {{startDate | date: 'MMM/dd/yyyy'}}</div>
-    <div>{{title | titlecase}}</div>
-    <div>{{price | currency: 'USD'}}</div>
-</div>
 
-<div>
-    @for (pair of course| keyvalue; track $index) {
-        {{pair.key + ': '+pair.value}}
-    }
-</div>
-<div class="courses">
+<div class="courses" *ngIf="courses[0] as course">
 
-    @for (course of courses; track trackCourse;;let count = $count) {
-        
-        <course-card  
-            [course]="course" 
-            [index]="$index"
-            (courseSelected)="onCourseSelected($event)"/> 
+    <course-card
+            (courseSelected)="onCourseSelected($event)"
+                 [course]="course">
 
-    }
-    @empty { 
-        <h1>No coureses found!</h1>
-    }
-    
+        <course-image [src]="course.iconUrl"></course-image>
+
+        <div class="course-description">
+            {{ course.longDescription }}
+        </div>
+
+    </course-card>
+
+
 </div>
 
 

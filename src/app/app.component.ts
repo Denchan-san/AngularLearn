@@ -1,30 +1,32 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {COURSES} from '../db-data';
-import { Course } from './model/course';
+import {Course} from './model/course';
+import {CourseCardComponent} from './course-card/course-card.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
 
-  courses = [...COURSES];
+    courses = COURSES;
 
-  startDate = new Date().getDate();
 
-  title = COURSES[0].description;
+    @ViewChildren(CourseCardComponent, {read: ElementRef})
+    cards : QueryList<ElementRef>;
 
-  price = 9.99;
 
-  course = COURSES[0];
+    constructor() {
 
-  onCourseSelected(course:Course){
-    alert("Card clicked.." + course);
-    console.log("App component - click event bubbled...", course)
-  }
+    }
 
-  trackCourse(index:number, course:Course){
-    return course.id;
-  }
+    ngAfterViewInit() {
+
+    }
+
+    onCourseSelected(course:Course) {
+
+    }
+
 }
