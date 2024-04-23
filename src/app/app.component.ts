@@ -8,25 +8,18 @@ import {CourseCardComponent} from './course-card/course-card.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
 
     courses = COURSES;
+    
+    @ViewChild('cardRef1', {read: ElementRef})
+    card1: CourseCardComponent
 
-
-    @ViewChildren(CourseCardComponent, {read: ElementRef})
-    cards : QueryList<ElementRef>;
-
-
-    constructor() {
-
-    }
-
-    ngAfterViewInit() {
-
-    }
+    @ViewChild('container')
+    containerDiv: ElementRef;
 
     onCourseSelected(course:Course) {
-
+        console.log(this.containerDiv);
     }
 
 }

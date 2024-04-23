@@ -5,22 +5,17 @@
 
 </div>
 
+<div class="courses" #container>
 
-
-<div class="courses" *ngIf="courses[0] as course">
-
-    <course-card
+    <course-card #cardRef1
             (courseSelected)="onCourseSelected($event)"
-                 [course]="course">
-
-        <course-image [src]="course.iconUrl"></course-image>
-
-        <div class="course-description">
-            {{ course.longDescription }}
-        </div>
-
+                 [course]="courses[0]">
     </course-card>
 
+    <course-card #cardRef2
+            (courseSelected)="onCourseSelected($event)"
+                 [course]="courses[1]">
+    </course-card>
 
 </div>
 
