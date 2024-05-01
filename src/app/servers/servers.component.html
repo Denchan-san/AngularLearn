@@ -43,6 +43,8 @@
 
 <!-- <p [innerText]="allowNewServer"></p> -->
 
+<p *ngIf="serverCreated">Server was created, server name is {{serverName}}</p>
+
 <p>&nwnear; App-server</p>
 <app-server></app-server>
 <app-server></app-server>
