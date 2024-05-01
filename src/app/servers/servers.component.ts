@@ -13,6 +13,18 @@ export class ServersComponent {
 
   //username: string = null;
   username = '';
+  serverName = '';
+  allowNewServer: boolean = false;
+  serverCreationStatus: string = 'No server was created!';
+  serverCreated = false;
+  servers = ['TestServer', 'TestServer2'];
+  
+  constructor(){
+    setTimeout(()=>{
+      this.allowNewServer = true;
+    },2000)
+  }
+
   usernameIsEmpty() {
     if(this.username == null || this.username.length == 0){
       return true;
@@ -23,20 +35,10 @@ export class ServersComponent {
   emptyUsername(){
     this.username = null;
   }
-
-  serverName = '';
-  allowNewServer: boolean = false;
-  serverCreationStatus: string = 'No server was created!';
-  serverCreated = false;
-  
-  constructor(){
-    setTimeout(()=>{
-      this.allowNewServer = true;
-    },2000)
-  }
   
   onCreateServer() {
     this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = 'Server was created! Name is ' + this.serverName;
   }
 
