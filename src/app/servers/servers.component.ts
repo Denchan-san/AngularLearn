@@ -18,6 +18,14 @@ export class ServersComponent {
   serverCreationStatus: string = 'No server was created!';
   serverCreated = false;
   servers = ['TestServer', 'TestServer2'];
+
+  showSecret = false;
+  log = [];
+
+  onToggleDetails(){
+      this.showSecret = !this.showSecret;
+      this.log.push(this.log.length + 1)
+  }
   
   constructor(){
     setTimeout(()=>{
