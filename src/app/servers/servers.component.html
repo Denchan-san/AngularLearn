@@ -69,8 +69,8 @@ Display Details
 <ng-template #noSecret>Secret is a secret!</ng-template>
 
 <div 
-    *ngFor="let logItem of log"
-    [ngStyle]="{backgroundColor: logItem >=5 ? 'blue' : 'white' }"
-    [ngClass]="{'white-text' : logItem >= 5}"
+    *ngFor="let logItem of log; let i = index"
+    [ngStyle]="{backgroundColor: i >=4 ? 'blue' : 'white' }"
+    [ngClass]="{'white-text' : i >= 4}"
 >
 {{logItem}}</div>
